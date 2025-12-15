@@ -1,0 +1,9 @@
+codBancoDestino,codBancoOrigen,codConcepto,codMoneda,codigoSAB,confirmaAbono,cuentaDestino,cuentaInterbancariaSAB,cuentaOrigen,datosCliente,estadoLiquidacion,fechaLiquidacion,fechaNegociacionCavali,horaLiquidacion,instruccionesPago,montoOperacion,numRefCavali,numRefEnlaceOperacion,numRefLBTR,numRefOrigen,prioridad,tipoCambio,tipoParticipanteCavali
+0270,0011,C054,00,312,empty,empty,empty,empty,empty,VALIDO,2024-05-21,2024-05-20,09:15:00,empty,1500100,3801,9166401,0011424803381,empty,empty,empty,empty
+0270,0011,C054,00,312,empty,empty,empty,empty,empty,VALIDO,2024-05-21,2024-05-20,10:30:00,empty,2134160,3802,9166402,0011424803382,empty,empty,empty,empty
+0270,0011,C054,00,312,empty,empty,empty,empty,empty,VALIDO,2024-05-21,2024-05-20,14:00:00,empty,50000,3803,9166403,0011424803383,empty,empty,empty,empty
+0270,0011,C054,00,312,empty,empty,empty,empty,empty,VALIDO,2024-05-22,2024-05-21,11:46:22,empty,2134160,3805,9166408,0011424803387,empty,empty,empty,empty
+0270,0011,C054,00,312,empty,empty,empty,empty,empty,VALIDO,2024-05-22,2024-05-21,12:00:00,empty,3000000,3806,9166409,0011424803388,empty,empty,empty,empty
+0270,0011,C054,00,312,empty,empty,empty,empty,empty,VALIDO,2024-05-22,2024-05-21,15:25:10,empty,100500,3807,9166410,0011424803389,empty,empty,empty,empty
+0270,0011,C054,00,312,empty,empty,empty,empty,empty,VALIDO,2024-05-23,2024-05-22,09:30:00,empty,4500000,3811,9166414,0011424803393,empty,empty,empty,empty
+0270,0011,C054,00,312,empty,empty,empty,empty,empty,VALIDO,2024-05-23,2024-05-22,10:00:00,empty,800000,3812,9166415,0011424803394,empty,empty,empty,empty

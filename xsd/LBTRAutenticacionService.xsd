@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.2.0-6 (tags/2.2.0-6-7698; 2013-09-03T14:32:45+0000) JAXWS-RI/2.2.6-6 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://lbtr.bcrp.gob.pe" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://lbtr.bcrp.gob.pe">
+
+<xs:element name="LBTRSessionFault" nillable="true" type="tns:faultInfo"/>
+
+<xs:element name="faultInfo" type="tns:faultInfo"/>
+
+<xs:element name="logoff" type="tns:logoff"/>
+
+<xs:element name="logoffResponse" type="tns:logoffResponse"/>
+
+<xs:element name="logon" type="tns:logon"/>
+
+<xs:element name="logonResponse" type="tns:logonResponse"/>
+
+<xs:complexType name="logoff">
+<xs:sequence>
+<xs:element name="codigo" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+<xs:element name="ksim" type="xs:string" minOccurs="0"/>
+<xs:element name="firma" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="logoffResponse">
+<xs:sequence>
+<xs:element name="respuesta" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="faultInfo">
+<xs:complexContent>
+<xs:extension base="tns:baseObject">
+<xs:sequence>
+<xs:element name="codError" type="xs:string" minOccurs="0"/>
+<xs:element name="mensajeError" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="baseObject">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="logon">
+<xs:sequence>
+<xs:element name="codigo" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+<xs:element name="ksim" type="xs:string" minOccurs="0"/>
+<xs:element name="firma" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="logonResponse">
+<xs:sequence>
+<xs:element name="sid" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

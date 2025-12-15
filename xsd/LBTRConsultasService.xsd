@@ -1,0 +1,484 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.2.0-6 (tags/2.2.0-6-7698; 2013-09-03T14:32:45+0000) JAXWS-RI/2.2.6-6 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://lbtr.bcrp.gob.pe" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://lbtr.bcrp.gob.pe">
+
+<xs:element name="LBTRServiceFault" nillable="true" type="tns:faultInfo"/>
+
+<xs:element name="LBTRSessionFault" nillable="true" type="tns:faultInfo"/>
+
+<xs:element name="faultInfo" type="tns:faultInfo"/>
+
+<xs:element name="lbtr_AgentesBolsa" type="tns:lbtr_AgentesBolsa"/>
+
+<xs:element name="lbtr_AgentesBolsaResponse" type="tns:lbtr_AgentesBolsaResponse"/>
+
+<xs:element name="lbtr_CobroTarifa" type="tns:lbtr_CobroTarifa"/>
+
+<xs:element name="lbtr_CobroTarifaResponse" type="tns:lbtr_CobroTarifaResponse"/>
+
+<xs:element name="lbtr_Conceptos" type="tns:lbtr_Conceptos"/>
+
+<xs:element name="lbtr_ConceptosResponse" type="tns:lbtr_ConceptosResponse"/>
+
+<xs:element name="lbtr_CtasCtesEntidad" type="tns:lbtr_CtasCtesEntidad"/>
+
+<xs:element name="lbtr_CtasCtesEntidadResponse" type="tns:lbtr_CtasCtesEntidadResponse"/>
+
+<xs:element name="lbtr_EntidadesFinancieras" type="tns:lbtr_EntidadesFinancieras"/>
+
+<xs:element name="lbtr_EntidadesFinancierasResponse" type="tns:lbtr_EntidadesFinancierasResponse"/>
+
+<xs:element name="lbtr_FacilidadesDisponibles" type="tns:lbtr_FacilidadesDisponibles"/>
+
+<xs:element name="lbtr_FacilidadesDisponiblesResponse" type="tns:lbtr_FacilidadesDisponiblesResponse"/>
+
+<xs:element name="lbtr_Monedas" type="tns:lbtr_Monedas"/>
+
+<xs:element name="lbtr_MonedasResponse" type="tns:lbtr_MonedasResponse"/>
+
+<xs:element name="lbtr_MovimientosCtaCte" type="tns:lbtr_MovimientosCtaCte"/>
+
+<xs:element name="lbtr_MovimientosCtaCteResponse" type="tns:lbtr_MovimientosCtaCteResponse"/>
+
+<xs:element name="lbtr_NegCompraVentaME" type="tns:lbtr_NegCompraVentaME"/>
+
+<xs:element name="lbtr_NegCompraVentaMEResponse" type="tns:lbtr_NegCompraVentaMEResponse"/>
+
+<xs:element name="lbtr_OperacionesOtorgadas" type="tns:lbtr_OperacionesOtorgadas"/>
+
+<xs:element name="lbtr_OperacionesOtorgadasResponse" type="tns:lbtr_OperacionesOtorgadasResponse"/>
+
+<xs:element name="lbtr_OperacionesRecibidas" type="tns:lbtr_OperacionesRecibidas"/>
+
+<xs:element name="lbtr_OperacionesRecibidasResponse" type="tns:lbtr_OperacionesRecibidasResponse"/>
+
+<xs:element name="lbtr_SaldosCtaCte" type="tns:lbtr_SaldosCtaCte"/>
+
+<xs:element name="lbtr_SaldosCtaCteResponse" type="tns:lbtr_SaldosCtaCteResponse"/>
+
+<xs:element name="lbtr_Tarifario" type="tns:lbtr_Tarifario"/>
+
+<xs:element name="lbtr_TarifarioResponse" type="tns:lbtr_TarifarioResponse"/>
+
+<xs:element name="lbtr_TipoCambio" type="tns:lbtr_TipoCambio"/>
+
+<xs:element name="lbtr_TipoCambioResponse" type="tns:lbtr_TipoCambioResponse"/>
+
+<xs:complexType name="lbtr_NegCompraVentaME">
+<xs:sequence>
+<xs:element name="sid" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaLiquidacion" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lbtr_NegCompraVentaMEResponse">
+<xs:sequence>
+<xs:element name="negociacionCVME" type="tns:beanCompraVentaME" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="beanCompraVentaME">
+<xs:complexContent>
+<xs:extension base="tns:baseObject">
+<xs:sequence>
+<xs:element name="codBancoDestino" type="xs:string" minOccurs="0"/>
+<xs:element name="codBancoOrigen" type="xs:string" minOccurs="0"/>
+<xs:element name="codConcepto" type="xs:string" minOccurs="0"/>
+<xs:element name="cuentaDestino" type="xs:string" minOccurs="0"/>
+<xs:element name="cuentaOrigen" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaLiquidacion" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="instruccionesPago" type="xs:string" minOccurs="0"/>
+<xs:element name="mercadoNegociado" type="xs:string" minOccurs="0"/>
+<xs:element name="montoME" type="xs:decimal" minOccurs="0"/>
+<xs:element name="montoMN" type="xs:decimal" minOccurs="0"/>
+<xs:element name="numRefCompraVentaBCR" type="xs:string" minOccurs="0"/>
+<xs:element name="numRefOrigen" type="xs:string" minOccurs="0"/>
+<xs:element name="tipoCambio" type="xs:decimal" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="baseObject">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="faultInfo">
+<xs:complexContent>
+<xs:extension base="tns:baseObject">
+<xs:sequence>
+<xs:element name="codError" type="xs:string" minOccurs="0"/>
+<xs:element name="mensajeError" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="lbtr_Monedas">
+<xs:sequence>
+<xs:element name="sid" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lbtr_MonedasResponse">
+<xs:sequence>
+<xs:element name="moneda" type="tns:beanMoneda" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="beanMoneda">
+<xs:complexContent>
+<xs:extension base="tns:baseObject">
+<xs:sequence>
+<xs:element name="codMoneda" type="xs:string" minOccurs="0"/>
+<xs:element name="desMoneda" type="xs:string" minOccurs="0"/>
+<xs:element name="simbolo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="lbtr_SaldosCtaCte">
+<xs:sequence>
+<xs:element name="sid" type="xs:string" minOccurs="0"/>
+<xs:element name="numCuenta" type="xs:string" minOccurs="0"/>
+<xs:element name="fecha" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lbtr_SaldosCtaCteResponse">
+<xs:sequence>
+<xs:element name="saldo" type="tns:beanSaldoCtaCte" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="beanSaldoCtaCte">
+<xs:complexContent>
+<xs:extension base="tns:baseObject">
+<xs:sequence>
+<xs:element name="codEntidad" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaSaldo" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="numCuenta" type="xs:string" minOccurs="0"/>
+<xs:element name="saldoActual" type="xs:decimal" minOccurs="0"/>
+<xs:element name="saldoInicial" type="xs:decimal" minOccurs="0"/>
+<xs:element name="totalAbonos" type="xs:decimal" minOccurs="0"/>
+<xs:element name="totalCargos" type="xs:decimal" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="lbtr_AgentesBolsa">
+<xs:sequence>
+<xs:element name="sid" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lbtr_AgentesBolsaResponse">
+<xs:sequence>
+<xs:element name="agenteBolsa" type="tns:beanAgenteBolsa" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="beanAgenteBolsa">
+<xs:complexContent>
+<xs:extension base="tns:baseObject">
+<xs:sequence>
+<xs:element name="codigoSAB" type="xs:string" minOccurs="0"/>
+<xs:element name="razonSocial" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="lbtr_OperacionesRecibidas">
+<xs:sequence>
+<xs:element name="sid" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaLiquidacion" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lbtr_OperacionesRecibidasResponse">
+<xs:sequence>
+<xs:element name="operacion" type="tns:beanOperacion" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="beanOperacion">
+<xs:complexContent>
+<xs:extension base="tns:baseObject">
+<xs:sequence>
+<xs:element name="codBancoDestino" type="xs:string" minOccurs="0"/>
+<xs:element name="codBancoOrigen" type="xs:string" minOccurs="0"/>
+<xs:element name="codConcepto" type="xs:string" minOccurs="0"/>
+<xs:element name="codMoneda" type="xs:string" minOccurs="0"/>
+<xs:element name="codigoSAB" type="xs:string" minOccurs="0"/>
+<xs:element name="confirmaAbono" type="xs:string" minOccurs="0"/>
+<xs:element name="cuentaDestino" type="xs:string" minOccurs="0"/>
+<xs:element name="cuentaInterbancariaSAB" type="xs:string" minOccurs="0"/>
+<xs:element name="cuentaOrigen" type="xs:string" minOccurs="0"/>
+<xs:element name="datosCliente" type="xs:string" minOccurs="0"/>
+<xs:element name="estadoLiquidacion" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaLiquidacion" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="fechaNegociacionCavali" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="horaLiquidacion" type="xs:string" minOccurs="0"/>
+<xs:element name="instruccionesPago" type="xs:string" minOccurs="0"/>
+<xs:element name="montoOperacion" type="xs:decimal" minOccurs="0"/>
+<xs:element name="numRefCavali" type="xs:string" minOccurs="0"/>
+<xs:element name="numRefEnlaceOperacion" type="xs:string" minOccurs="0"/>
+<xs:element name="numRefLBTR" type="xs:string" minOccurs="0"/>
+<xs:element name="numRefOrigen" type="xs:string" minOccurs="0"/>
+<xs:element name="prioridad" type="xs:int" minOccurs="0"/>
+<xs:element name="tipoCambio" type="xs:decimal" minOccurs="0"/>
+<xs:element name="tipoParticipanteCavali" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="lbtr_CobroTarifa">
+<xs:sequence>
+<xs:element name="sid" type="xs:string" minOccurs="0"/>
+<xs:element name="periodo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lbtr_CobroTarifaResponse">
+<xs:sequence>
+<xs:element name="beanCobroTarifa" type="tns:beanCobroTarifa" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="beanCobroTarifa">
+<xs:complexContent>
+<xs:extension base="tns:baseObject">
+<xs:sequence>
+<xs:element name="codEntidad" type="xs:string" minOccurs="0"/>
+<xs:element name="detalle" type="tns:beanDetalleCobroTarifa" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="periodo" type="xs:string" minOccurs="0"/>
+<xs:element name="totalFijo" type="xs:decimal" minOccurs="0"/>
+<xs:element name="totalPeriodo" type="xs:decimal" minOccurs="0"/>
+<xs:element name="totalVariable" type="xs:decimal" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="beanDetalleCobroTarifa">
+<xs:complexContent>
+<xs:extension base="tns:baseObject">
+<xs:sequence>
+<xs:element name="codConcepto" type="xs:string" minOccurs="0"/>
+<xs:element name="codTarifa" type="xs:string" minOccurs="0"/>
+<xs:element name="fecha" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="montoTarifa" type="xs:decimal" minOccurs="0"/>
+<xs:element name="numOperaciones" type="xs:int" minOccurs="0"/>
+<xs:element name="tipoCobro" type="xs:string" minOccurs="0"/>
+<xs:element name="totalConceptoTarifa" type="xs:decimal" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="lbtr_FacilidadesDisponibles">
+<xs:sequence>
+<xs:element name="sid" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lbtr_FacilidadesDisponiblesResponse">
+<xs:sequence>
+<xs:element name="facilidadDisponible" type="tns:beanFacilidadInstitucion" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="beanFacilidadInstitucion">
+<xs:complexContent>
+<xs:extension base="tns:baseObject">
+<xs:sequence>
+<xs:element name="codFacilidad" type="xs:string" minOccurs="0"/>
+<xs:element name="codMoneda" type="xs:string" minOccurs="0"/>
+<xs:element name="desFacilidad" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="lbtr_MovimientosCtaCte">
+<xs:sequence>
+<xs:element name="sid" type="xs:string" minOccurs="0"/>
+<xs:element name="numCuenta" type="xs:string" minOccurs="0"/>
+<xs:element name="fecha" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lbtr_MovimientosCtaCteResponse">
+<xs:sequence>
+<xs:element name="movimiento" type="tns:beanMovimientoCtaCte" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="beanMovimientoCtaCte">
+<xs:complexContent>
+<xs:extension base="tns:baseObject">
+<xs:sequence>
+<xs:element name="codCargoAbono" type="xs:string" minOccurs="0"/>
+<xs:element name="codConcepto" type="xs:string" minOccurs="0"/>
+<xs:element name="codEntidad" type="xs:string" minOccurs="0"/>
+<xs:element name="codEntidadCP" type="xs:string" minOccurs="0"/>
+<xs:element name="codMoneda" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaLiquidacion" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="instruccionesPago" type="xs:string" minOccurs="0"/>
+<xs:element name="montoOperacion" type="xs:decimal" minOccurs="0"/>
+<xs:element name="numCuenta" type="xs:string" minOccurs="0"/>
+<xs:element name="numRefLBTR" type="xs:string" minOccurs="0"/>
+<xs:element name="tipoCambio" type="xs:decimal" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="lbtr_CtasCtesEntidad">
+<xs:sequence>
+<xs:element name="sid" type="xs:string" minOccurs="0"/>
+<xs:element name="institucionID" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lbtr_CtasCtesEntidadResponse">
+<xs:sequence>
+<xs:element name="cuentaCorriente" type="tns:beanCuentaCorriente" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="beanCuentaCorriente">
+<xs:complexContent>
+<xs:extension base="tns:baseObject">
+<xs:sequence>
+<xs:element name="codEntidad" type="xs:string" minOccurs="0"/>
+<xs:element name="codMoneda" type="xs:string" minOccurs="0"/>
+<xs:element name="nombreCuenta" type="xs:string" minOccurs="0"/>
+<xs:element name="numCuenta" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="lbtr_TipoCambio">
+<xs:sequence>
+<xs:element name="sid" type="xs:string" minOccurs="0"/>
+<xs:element name="codMoneda" type="xs:string" minOccurs="0"/>
+<xs:element name="fecha" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lbtr_TipoCambioResponse">
+<xs:sequence>
+<xs:element name="tipoCambio" type="tns:beanTipoCambio" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="beanTipoCambio">
+<xs:complexContent>
+<xs:extension base="tns:baseObject">
+<xs:sequence>
+<xs:element name="codMoneda" type="xs:string" minOccurs="0"/>
+<xs:element name="fecha" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="valorTipoCambio" type="xs:decimal" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="lbtr_Conceptos">
+<xs:sequence>
+<xs:element name="sid" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lbtr_ConceptosResponse">
+<xs:sequence>
+<xs:element name="conceptoLiquidacion" type="tns:beanConceptoLiquidacion" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="beanConceptoLiquidacion">
+<xs:complexContent>
+<xs:extension base="tns:baseObject">
+<xs:sequence>
+<xs:element name="codConcepto" type="xs:string" minOccurs="0"/>
+<xs:element name="codMoneda" type="xs:string" minOccurs="0"/>
+<xs:element name="desConcepto" type="xs:string" minOccurs="0"/>
+<xs:element name="estado" type="xs:string" minOccurs="0"/>
+<xs:element name="montoMinimo" type="xs:decimal" minOccurs="0"/>
+<xs:element name="origen" type="xs:string" minOccurs="0"/>
+<xs:element name="servicio" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="lbtr_Tarifario">
+<xs:sequence>
+<xs:element name="sid" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lbtr_TarifarioResponse">
+<xs:sequence>
+<xs:element name="tarifario" type="tns:beanTarifa" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="beanTarifa">
+<xs:complexContent>
+<xs:extension base="tns:baseObject">
+<xs:sequence>
+<xs:element name="codTarifa" type="xs:string" minOccurs="0"/>
+<xs:element name="costoFijo" type="xs:decimal" minOccurs="0"/>
+<xs:element name="desTarifa" type="xs:string" minOccurs="0"/>
+<xs:element name="horaFinal" type="xs:string" minOccurs="0"/>
+<xs:element name="horaInicio" type="xs:string" minOccurs="0"/>
+<xs:element name="indAbono" type="xs:string" minOccurs="0"/>
+<xs:element name="indCargo" type="xs:string" minOccurs="0"/>
+<xs:element name="tarifaAplicada" type="xs:decimal" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="lbtr_OperacionesOtorgadas">
+<xs:sequence>
+<xs:element name="sid" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaLiquidacion" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lbtr_OperacionesOtorgadasResponse">
+<xs:sequence>
+<xs:element name="operacion" type="tns:beanOperacion" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lbtr_EntidadesFinancieras">
+<xs:sequence>
+<xs:element name="sid" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lbtr_EntidadesFinancierasResponse">
+<xs:sequence>
+<xs:element name="entidadFinanciera" type="tns:beanEntidadFinanciera" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="beanEntidadFinanciera">
+<xs:complexContent>
+<xs:extension base="tns:baseObject">
+<xs:sequence>
+<xs:element name="codEntidad" type="xs:string" minOccurs="0"/>
+<xs:element name="nomCortoEntidad" type="xs:string" minOccurs="0"/>
+<xs:element name="nomLargoEntidad" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+</xs:schema>

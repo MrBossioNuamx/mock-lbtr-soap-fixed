@@ -1,0 +1,50 @@
+
+package pe.bcrp.lbtr.ws.consultas;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.bind.annotation.XmlType;
+
+
+/**
+ * <p>Clase Java para baseObject complex type.
+ * 
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * 
+ * <pre>
+ * &lt;complexType name="baseObject"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
+ * </pre>
+ * 
+ * 
+ */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "baseObject")
+@XmlSeeAlso({
+    FaultInfo.class,
+    BeanCompraVentaME.class,
+    BeanMoneda.class,
+    BeanSaldoCtaCte.class,
+    BeanAgenteBolsa.class,
+    BeanOperacion.class,
+    BeanCobroTarifa.class,
+    BeanDetalleCobroTarifa.class,
+    BeanFacilidadInstitucion.class,
+    BeanMovimientoCtaCte.class,
+    BeanCuentaCorriente.class,
+    BeanTipoCambio.class,
+    BeanConceptoLiquidacion.class,
+    BeanTarifa.class,
+    BeanEntidadFinanciera.class
+})
+public class BaseObject {
+
+
+}

@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "a1b2c3d4-e5f6-4a5b-8c9d-0e1f2a3b4c5d",
+		"name": "LBTR Mock Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Auth - Logon",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"try {",
+							"    var response = xml2Json(pm.response.text());",
+							"    var sessionId = response[\"soap:Envelope\"][\"soap:Body\"][\"ns2:logonResponse\"][\"sid\"];",
+							"    if (sessionId) {",
+							"        pm.collectionVariables.set(\"sessionId\", sessionId);",
+							"        console.log(\"Session ID set to: \" + sessionId);",
+							"    } else {",
+							"        console.error(\"Could not find session ID in response.\");",
+							"    }",
+							"} catch (e) {",
+							"    console.error(\"Error parsing SOAP response: \" + e);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"http://lbtr.bcrp.gob.pe\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <tns:logon>\n         <codigo>user1</codigo>\n         <password>pass123</password>\n         <ksim>ksim1</ksim>\n         <firma>firma1</firma>\n      </tns:logon>\n   </soapenv:Body>\n</soapenv:Envelope>"
+				},
+				"url": {
+					"raw": "http://localhost:8090/soap/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"soap",
+						"auth"
+					]
+				},
+				"description": "Authenticates a user and retrieves a session ID."
+			},
+			"response": []
+		},
+		{
+			"name": "2. Consultas - Operaciones Recibidas",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"http://lbtr.bcrp.gob.pe\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <tns:lbtr_OperacionesRecibidas>\n         <sid>{{sessionId}}</sid>\n         <fechaLiquidacion>2024-05-22T12:00:00.000-05:00</fechaLiquidacion>\n      </tns:lbtr_OperacionesRecibidas>\n   </soapenv:Body>\n</soapenv:Envelope>"
+				},
+				"url": {
+					"raw": "http://localhost:8090/soap/consultas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"soap",
+						"consultas"
+					]
+				},
+				"description": "Fetches operations for the current day using the active session ID."
+			},
+			"response": []
+		},
+		{
+			"name": "3. Transferencia - Instruir Cavali",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"http://lbtr.bcrp.gob.pe\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <tns:instruirTransferenciaCavali>\n         <sid>{{sessionId}}</sid>\n         <datosTransferencia>\n            <codConcepto>CCI</codConcepto>\n            <cuentaDestino>987654321</cuentaDestino>\n            <cuentaOrigen>123456789</cuentaOrigen>\n            <datosCliente>Cliente de Prueba</datosCliente>\n            <fechaLiquidacion>2024-05-22T14:00:00.000-05:00</fechaLiquidacion>\n            <instruccionesPago>Pago por servicio</instruccionesPago>\n            <montoOperacion>123.45</montoOperacion>\n            <numRefOrigen>REF-ORIGEN-001</numRefOrigen>\n            <prioridad>1</prioridad>\n         </datosTransferencia>\n         <datosCavali>\n            <codigoSAB>SAB01</codigoSAB>\n            <cuentaInterbancariaSAB>001987654321</cuentaInterbancariaSAB>\n            <fechaNegociacionCavali>2024-05-22T13:30:00.000-05:00</fechaNegociacionCavali>\n            <numRefCavali>CAV-REF-001</numRefCavali>\n            <tipoParticipanteCavali>PARTICIPANTE</tipoParticipanteCavali>\n         </datosCavali>\n         <firma>firma1</firma>\n      </tns:instruirTransferenciaCavali>\n   </soapenv:Body>\n</soapenv:Envelope>"
+				},
+				"url": {
+					"raw": "http://localhost:8090/soap/transferencia",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"soap",
+						"transferencia"
+					]
+				},
+				"description": "Instructs a new Cavali transfer and prints the content to the console."
+			},
+			"response": []
+		},
+		{
+			"name": "4. Auth - Logoff",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"http://lbtr.bcrp.gob.pe\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <tns:logoff>\n         <codigo>user1</codigo>\n         <password>pass123</password>\n         <ksim>ksim1</ksim>\n         <firma>firma1</firma>\n      </tns:logoff>\n   </soapenv:Body>\n</soapenv:Envelope>"
+				},
+				"url": {
+					"raw": "http://localhost:8090/soap/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"soap",
+						"auth"
+					]
+				},
+				"description": "Invalidates all sessions for a given user."
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "sessionId",
+			"value": "PLEASE_RUN_LOGON_FIRST",
+			"type": "string"
+		}
+	]
+}

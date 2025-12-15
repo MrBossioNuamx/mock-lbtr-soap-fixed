@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.2.0-6 (tags/2.2.0-6-7698; 2013-09-03T14:32:45+0000) JAXWS-RI/2.2.6-6 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://lbtr.bcrp.gob.pe" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://lbtr.bcrp.gob.pe">
+
+<xs:element name="LBTRServiceFault" nillable="true" type="tns:faultInfo"/>
+
+<xs:element name="LBTRSessionFault" nillable="true" type="tns:faultInfo"/>
+
+<xs:element name="confirmarAbonoCliente" type="tns:confirmarAbonoCliente"/>
+
+<xs:element name="confirmarAbonoClienteResponse" type="tns:confirmarAbonoClienteResponse"/>
+
+<xs:element name="faultInfo" type="tns:faultInfo"/>
+
+<xs:element name="instruirTransferencia" type="tns:instruirTransferencia"/>
+
+<xs:element name="instruirTransferenciaCavali" type="tns:instruirTransferenciaCavali"/>
+
+<xs:element name="instruirTransferenciaCavaliResponse" type="tns:instruirTransferenciaCavaliResponse"/>
+
+<xs:element name="instruirTransferenciaResponse" type="tns:instruirTransferenciaResponse"/>
+
+<xs:complexType name="instruirTransferenciaCavali">
+<xs:sequence>
+<xs:element name="sid" type="xs:string" minOccurs="0"/>
+<xs:element name="datosTransferencia" type="tns:datosTransferencia" minOccurs="0"/>
+<xs:element name="datosCavali" type="tns:datosCavali" minOccurs="0"/>
+<xs:element name="firma" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="datosTransferencia">
+<xs:complexContent>
+<xs:extension base="tns:baseObject">
+<xs:sequence>
+<xs:element name="codConcepto" type="xs:string" minOccurs="0"/>
+<xs:element name="cuentaDestino" type="xs:string" minOccurs="0"/>
+<xs:element name="cuentaOrigen" type="xs:string" minOccurs="0"/>
+<xs:element name="datosCliente" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaLiquidacion" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="fechaRefLBTREnlace" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="instruccionesPago" type="xs:string" minOccurs="0"/>
+<xs:element name="modalidad" type="xs:string" minOccurs="0"/>
+<xs:element name="montoOperacion" type="xs:decimal" minOccurs="0"/>
+<xs:element name="numRefLBTREnlace" type="xs:string" minOccurs="0"/>
+<xs:element name="numRefOrigen" type="xs:string" minOccurs="0"/>
+<xs:element name="prioridad" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="baseObject">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="datosCavali">
+<xs:complexContent>
+<xs:extension base="tns:baseObject">
+<xs:sequence>
+<xs:element name="codigoSAB" type="xs:string" minOccurs="0"/>
+<xs:element name="cuentaInterbancariaSAB" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaNegociacionCavali" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="numRefCavali" type="xs:string" minOccurs="0"/>
+<xs:element name="tipoParticipanteCavali" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="instruirTransferenciaCavaliResponse">
+<xs:sequence>
+<xs:element name="respuestaLBTR" type="tns:respuestaLBTR" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="respuestaLBTR">
+<xs:complexContent>
+<xs:extension base="tns:baseObject">
+<xs:sequence>
+<xs:element name="estado" type="xs:string" minOccurs="0"/>
+<xs:element name="numRefLBTR" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="faultInfo">
+<xs:complexContent>
+<xs:extension base="tns:baseObject">
+<xs:sequence>
+<xs:element name="codError" type="xs:string" minOccurs="0"/>
+<xs:element name="mensajeError" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="confirmarAbonoCliente">
+<xs:sequence>
+<xs:element name="sid" type="xs:string" minOccurs="0"/>
+<xs:element name="numRefLBTR" type="xs:string" minOccurs="0"/>
+<xs:element name="firma" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="confirmarAbonoClienteResponse">
+<xs:sequence>
+<xs:element name="respuestaLBTR" type="tns:respuestaLBTR" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="instruirTransferencia">
+<xs:sequence>
+<xs:element name="sid" type="xs:string" minOccurs="0"/>
+<xs:element name="datosTransferencia" type="tns:datosTransferencia" minOccurs="0"/>
+<xs:element name="firma" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="instruirTransferenciaResponse">
+<xs:sequence>
+<xs:element name="respuestaLBTR" type="tns:respuestaLBTR" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
